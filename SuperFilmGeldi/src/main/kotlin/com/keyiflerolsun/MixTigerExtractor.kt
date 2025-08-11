@@ -13,6 +13,7 @@ open class MixTiger : ExtractorApi() {
     override val requiresReferer = true
 
     override suspend fun getUrl(url: String, referer: String?, subtitleCallback: (SubtitleFile) -> Unit, callback: (ExtractorLink) -> Unit) {
+        val m3uLink:String?
         val extRef  = referer ?: ""
         val postUrl = "${url}?do=getVideo"
         Log.d("Kekik_${this.name}", "postUrl » $postUrl")
@@ -35,13 +36,13 @@ open class MixTiger : ExtractorApi() {
         Log.d("Kekik_${this.name}", "videoResponse » $videoResponse")
 
         if (videoResponse.videoSrc != null) {
-            val m3uLink = videoResponse.videoSrc
+            m3uLink = videoResponse.videoSrc
             Log.d("Kekik_${this.name}", "m3uLink » $m3uLink")
 
             loadExtractor(m3uLink, extRef, subtitleCallback, callback)
         } else {
-            val videoSources = videoResponse.videoSources
-            val m3uLink = if (videoSources.isNotEmpty()) {
+            val videoSources  = videoResponse.videoSources
+            m3uLink = if (videoSources.isNotEmpty()) {
                 videoSources.lastOrNull()?.file
             } else {
                 null
@@ -50,15 +51,15 @@ open class MixTiger : ExtractorApi() {
             Log.d("Kekik_${this.name}", "m3uLink » $m3uLink")
 
             callback.invoke(
-                ExtractorLink(
+                newExtractorLink(
                     source  = this.name,
                     name    = this.name,
                     url     = m3uLink ?: throw ErrorLoadingException("m3u link not found"),
-                    referer = if (m3uLink?.contains("disk.yandex") == true) "" else extRef,
-                    quality = Qualities.Unknown.value,
-                    isM3u8  = m3uLink?.endsWith(".m3u8") == true,
-                    headers = mapOf("Referer" to if (m3uLink?.contains("disk.yandex") == true) "" else extRef)
-                )
+                    type    = INFER_TYPE
+			) {
+                headers = mapOf("Referer" to if (m3uLink.contains("disk.yandex")) "" else extRef)
+                quality = Qualities.Unknown.value
+            }
             )
         }
     }
