@@ -26,14 +26,11 @@ jobs:
         with:
           path: "src"
 
-      - name: "'build' Depo Kontrolü"
-        uses: actions/checkout@v4.2.2
-        with:
-          ref: "builds"
-          path: "builds"
+      - name: "'build' Klasörü Oluştur"
+        run: mkdir -p builds
 
       - name: Eski Derlemeleri Temizle
-        run: rm $GITHUB_WORKSPACE/builds/*.cs3 || true
+        run: rm -rf $GITHUB_WORKSPACE/builds/* || true
 
       - name: JDK 17 Ayarla
         uses: actions/setup-java@v4.6.0
@@ -52,11 +49,14 @@ jobs:
           cp **/build/*.cs3 $GITHUB_WORKSPACE/builds
           cp build/plugins.json $GITHUB_WORKSPACE/builds
 
-      - name: Derlemeleri Yükle
+      - name: Yeni Repository Oluştur ve Pushla
         run: |
           cd $GITHUB_WORKSPACE/builds
+          git init
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add .
-          git commit --amend -m "$GITHUB_SHA 'nın Derlenmesi" || exit 0   # eğer commit edilecek bir şey yoksa hata verme
-          git push --force
+          git commit -m "$GITHUB_SHA 'nın Derlenmesi"
+          git branch -M builds
+          git remote add origin https://github.com/akdeniznet/Kekik.git
+          git push -u origin builds --force
