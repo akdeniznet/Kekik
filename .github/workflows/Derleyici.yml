@@ -50,13 +50,15 @@ jobs:
           cp build/plugins.json $GITHUB_WORKSPACE/builds
 
       - name: Yeni Repository Oluştur ve Pushla
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd $GITHUB_WORKSPACE/builds
           git init
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
+          git branch -m builds
           git add .
           git commit -m "$GITHUB_SHA 'nın Derlenmesi"
-          git branch -M builds
-          git remote add origin https://github.com/akdeniznet/Kekik.git
+          git remote add origin https://x-access-token:$GITHUB_TOKEN@github.com/${{ github.repository }}.git
           git push -u origin builds --force
