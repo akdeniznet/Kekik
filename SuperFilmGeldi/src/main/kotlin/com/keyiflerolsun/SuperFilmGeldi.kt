@@ -101,7 +101,7 @@ class SuperFilmGeldi : MainAPI() {
             this.year            = year
             this.plot            = description
             this.tags            = tags
-            this.rating          = rating
+            this.score           = rating?.toFloat()
             this.recommendations = recommendations
             addActors(actors)
         }
