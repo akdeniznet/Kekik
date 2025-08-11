@@ -3,6 +3,7 @@
   "description": "Türkçe içerikli eklenti havuzu",
   "manifestVersion": 1,
   "pluginLists": [
-    "https://raw.githubusercontent.com/maarrem/cs-Kekik/builds/plugins.json"
+    "https://raw.githubusercontent.com/akdeniznet/Kekik/refs/heads/builds/plugins.json"
+    // "https://raw.githubusercontent.com/maarrem/cs-Kekik/builds/plugins.json"
   ]
 }
