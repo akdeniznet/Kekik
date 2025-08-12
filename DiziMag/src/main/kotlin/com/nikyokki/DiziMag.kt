@@ -214,7 +214,7 @@ class DiziMag : MainAPI() {
                 this.year = year
                 this.plot = description
                 this.tags = tags
-                this.score = rating?.toFloat()
+                this.score = rating?.let { Score(it.toFloat()) } // Float'ı Score nesnesine çevir
                 addActors(actors)
                 addTrailer("https://www.youtube.com/embed/${trailer}")
             }
@@ -224,7 +224,7 @@ class DiziMag : MainAPI() {
                 this.year = year
                 this.plot = description
                 this.tags = tags
-                this.score = rating?.toFloat()
+                this.score = rating?.let { Score(it.toFloat()) } // Float'ı Score nesnesine çevir
                 this.duration = duration
                 addActors(actors)
                 addTrailer("https://www.youtube.com/embed/${trailer}")
