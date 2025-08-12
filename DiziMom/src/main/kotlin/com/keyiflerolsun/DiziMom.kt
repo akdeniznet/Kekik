@@ -98,7 +98,7 @@ class DiziMom : MainAPI() {
             this.year      = year
             this.plot      = description
             this.tags      = tags
-            this.rating    = rating
+            this.score     = rating?.let { Score(it.toFloat()) } // Float'ı Score nesnesine çevir
             addActors(actors)
         }
     }

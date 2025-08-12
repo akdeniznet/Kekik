@@ -153,7 +153,7 @@ class DiziMore : MainAPI() {
             this.plot            = description
             this.year            = year
             this.tags            = tags
-            this.rating          = rating
+            this.score           = rating?.let { Score(it.toFloat()) } // Float'ı Score nesnesine çevir
             this.duration        = duration
             this.episodes        = episodes
 //            this.recommendations = recommendations
