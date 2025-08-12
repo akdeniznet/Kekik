@@ -220,7 +220,7 @@ class Dizilla : MainAPI() {
             this.year = year
             this.plot = description
             this.tags = tags
-            this.score = rating?.toFloat()
+            this.score = rating?.let { Score(it.toFloat()) } // Float'ı Score nesnesine çevir
             addActors(actors)
         }
     }
