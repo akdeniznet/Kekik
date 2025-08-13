@@ -1,12 +1,13 @@
-package com.keyiflerolsun
+// ! Bu araç @Kraptor123 tarafından | @kekikanime için yazılmıştır.
+package com.kraptor
 
-import com.lagradost.cloudstream3.plugins.BasePlugin
 import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
+import com.lagradost.cloudstream3.plugins.BasePlugin
 
 @CloudstreamPlugin
-class DizillaPlugin: BasePlugin() {
+class `4KFilmIzlemePlugin`: BasePlugin() {
     override fun load() {
-        registerMainAPI(Dizilla())
+        registerMainAPI(`4KFilmIzleme`())
         registerExtractorAPI(ContentX())
         registerExtractorAPI(Hotlinger())
         registerExtractorAPI(RapidVid())
@@ -24,8 +25,7 @@ class DizillaPlugin: BasePlugin() {
         registerExtractorAPI(FourDplayer())
         registerExtractorAPI(SNDplayer())
         registerExtractorAPI(ORGDplayer())
-        registerExtractorAPI(SnHotLinger())
-        registerExtractorAPI(SNDPlayer74())
+        registerExtractorAPI(GoogleDriveExtractor())
         registerExtractorAPI(VidMolyExtractor())
         registerExtractorAPI(VidMolyTo())
     }

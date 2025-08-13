@@ -1,6 +1,6 @@
 // ! Bu araç @keyiflerolsun tarafından | @KekikAkademi için yazılmıştır.
 
-package com.keyiflerolsun
+package com.kraptor
 
 class Hotlinger : ContentX() {
     override var name    = "Hotlinger"
@@ -45,14 +45,4 @@ class SNDplayer : ContentX() {
 class ORGDplayer : ContentX() {
     override var name    = "ORGDplayer"
     override var mainUrl = "https://org.dplayer82.site"
-}
-
-class SnHotLinger : ContentX() {
-    override var name    = "SnHotLinger"
-    override var mainUrl = "https://sn.hotlinger.com"
-}
-
-class SNDPlayer74 : ContentX() {
-    override var name    = "SNDPlayer74"
-    override var mainUrl = "https://sn.dplayer74.site"
 }

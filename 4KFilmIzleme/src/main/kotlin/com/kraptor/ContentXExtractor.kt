@@ -1,6 +1,6 @@
 // ! Bu araç @keyiflerolsun tarafından | @KekikAkademi için yazılmıştır.
 
-package com.keyiflerolsun
+package com.kraptor
 
 import android.util.Base64
 import com.lagradost.api.Log
@@ -561,4 +561,3 @@ open class VidMolyExtractor : ExtractorApi() {
         }
     }
 }
-

@@ -1,6 +1,6 @@
 // ! Bu araç @keyiflerolsun tarafından | @KekikAkademi için yazılmıştır.
 
-package com.keyiflerolsun
+package com.kraptor
 
 import android.util.Base64
 import com.lagradost.api.Log
@@ -41,9 +41,11 @@ open class ContentX : ExtractorApi() {
                 .replace("\\u011f", "ğ")
                 .replace("\\u015f", "ş")
 
+            Log.d("kraptor_$name","sublang = $subLang")
+
             val keywords = listOf("tur", "tr", "türkçe", "turkce")
             val language = if (subLang.contains("Forced")) {
-                "Turkish Forced"
+                    "Turkish Forced"
             } else if (keywords.any { subLang.contains(it, ignoreCase = true) }) {
                 "Turkish"
             } else {
@@ -510,6 +512,7 @@ fun decodeEE(encoded: String): String {
     return rot13.reversed()
 }
 
+
 class VidMolyTo : VidMolyExtractor() {
     override var name    = "VidMoly"
     override var mainUrl = "https://vidmoly.to"
@@ -561,4 +564,3 @@ open class VidMolyExtractor : ExtractorApi() {
         }
     }
 }
-
