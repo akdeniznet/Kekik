@@ -23,48 +23,11 @@ jobs:
         with:
           path: "src"
 
-      - name: Builds Branch'ini Kontrol Et
-        id: checkout-builds
-        uses: actions/checkout@v4
+      - name: "'build' Depo Kontrolü"
+        uses: actions/checkout@v4.2.2
         with:
           ref: "builds"
           path: "builds"
-          fetch-depth: 0
-        continue-on-error: true
-
-      - name: Builds Klasörünü Oluştur (Eğer Yoksa)
-        if: steps.checkout-builds.outcome == 'failure'
-        run: |
-          echo "Builds branch'i bulunamadı, yeni oluşturuluyor..."
-          mkdir -p builds
-          cd builds
-          git init
-          git checkout --orphan builds
-          echo "# Builds Repository" > README.md
-          git add README.md
-          git config user.email "actions@github.com"
-          git config user.name "GitHub Actions"
-          git commit -m "Initial commit"
-          echo "builds klasörü oluşturuldu ve içeriği:"
-          ls -la
-          cd ..
-
-      - name: Klasör Yapısını Doğrula
-        run: |
-          echo "Mevcut çalışma dizini: $PWD"
-          echo "Klasör içeriği:"
-          ls -R
-          echo "builds klasörü içeriği:"
-          ls -la builds/
-
-      - name: Eski Derlemeleri Temizle
-        run: |
-          if [ -d "builds" ]; then
-            echo "builds klasörü bulundu, temizleme yapılıyor..."
-            find builds -name '*.cs3' ! -name 'Anizium.cs3' -delete
-          else
-            echo "UYARI: builds klasörü bulunamadı!"
-          fi
 
       - name: Eski Derlemeleri Temizle
         run: find $GITHUB_WORKSPACE/builds -name '*.cs3' ! -name 'Anizium.cs3' -delete
