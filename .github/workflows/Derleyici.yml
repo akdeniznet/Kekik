@@ -22,40 +22,62 @@ jobs:
         uses: actions/checkout@v4.2.2
         with:
           path: "src"
-
-      - name: "'builds' Branch'ini Kontrol Et"
-        uses: actions/checkout@v4.2.2
+          
+- name: Builds Branch'ini Kontrol Et
+        id: checkout-builds
+        uses: actions/checkout@v4
         with:
           ref: "builds"
           path: "builds"
-        continue-on-error: true  # Branch yoksa hata verme
+          fetch-depth: 0
+        continue-on-error: true
 
-      - name: Builds Klasörünü Hazırla (Yoksa)
-            if: steps.checkout-builds.outcome == 'failure'
-            run: |
-            mkdir -p builds
-            cd builds
-            git init
-            git checkout --orphan builds
-            echo "# Builds Repository" > README.md
-            git add README.md
-            git config user.email "actions@github.com"
-            git config user.name "GitHub Actions"
-            git commit -m "Initial commit"
-            cd ..
+      - name: Builds Klasörünü Oluştur (Eğer Yoksa)
+        if: steps.checkout-builds.outcome == 'failure'
+        run: |
+          echo "Builds branch'i bulunamadı, yeni oluşturuluyor..."
+          mkdir -p builds
+          cd builds
+          git init
+          git checkout --orphan builds
+          echo "# Builds Repository" > README.md
+          git add README.md
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git commit -m "Initial commit"
+          echo "builds klasörü oluşturuldu ve içeriği:"
+          ls -la
+          cd ..
+
+      - name: Klasör Yapısını Doğrula
+        run: |
+          echo "Mevcut çalışma dizini: $PWD"
+          echo "Klasör içeriği:"
+          ls -R
+          echo "builds klasörü içeriği:"
+          ls -la builds/
+
+      - name: Eski Derlemeleri Temizle
+        run: |
+          if [ -d "builds" ]; then
+            echo "builds klasörü bulundu, temizleme yapılıyor..."
+            find builds -name '*.cs3' ! -name 'Anizium.cs3' -delete
+          else
+            echo "UYARI: builds klasörü bulunamadı!"
+          fi
 
       - name: Eski Derlemeleri Temizle
         run: find $GITHUB_WORKSPACE/builds -name '*.cs3' ! -name 'Anizium.cs3' -delete
-
+        
       - name: JDK 23 Ayarla
         uses: actions/setup-java@v4.6.0
         with:
           distribution: adopt
           java-version: 23
-
+          
       - name: Android SDK Ayarla
         uses: android-actions/setup-android@v3.2.2
-
+        
       - name: Eklentileri Derle
         run: |
           cd $GITHUB_WORKSPACE/src
@@ -63,33 +85,33 @@ jobs:
           ./gradlew make makePluginsJson
           cp **/build/*.cs3 $GITHUB_WORKSPACE/builds
           cp build/plugins.json $GITHUB_WORKSPACE/builds
-
+          
       - name: jq Araçlarını Kur
         run: sudo apt-get update && sudo apt-get install -y jq
-
+        
       - name: plugins.json Dosyasını Kontrol Et ve Yedekle
         run: |
           cd $GITHUB_WORKSPACE/builds
           echo "plugins.json içeriği (öncesi):"
           cat plugins.json | jq '.'
           cp plugins.json plugins-backup.json
-
+          
       - name: Anizium Eklentisini plugins.json'a Elle Ekle
         run: |
           cd $GITHUB_WORKSPACE/builds
-
+          
           # Dosya var mı kontrol et
           if [ ! -f "plugins.json" ]; then
             echo "plugins.json dosyası bulunamadı, yeni dosya oluşturuluyor"
             echo '[]' > plugins.json
           fi
-
+          
           # JSON dosyasının geçerli olup olmadığını kontrol et
           if ! jq empty plugins.json 2>/dev/null; then
             echo "plugins.json geçersiz JSON formatında, yeniden oluşturuluyor"
             echo '[]' > plugins.json
           fi
-
+          
           # Anizium'un zaten var olup olmadığını kontrol et
           if jq -e '.[] | select(.internalName == "Anizium")' plugins.json > /dev/null 2>&1; then
             echo "Anizium zaten plugins.json'da mevcut"
@@ -119,14 +141,14 @@ jobs:
               rm -f plugins-temp.json
             fi
           fi
-
+          
       - name: plugins.json Son Durumunu Göster
         run: |
           cd $GITHUB_WORKSPACE/builds
           echo "plugins.json içeriği (sonrası):"
           cat plugins.json | jq '.'
           echo "Toplam eklenti sayısı: $(jq '. | length' plugins.json)"
-
+          
       - name: Anizium.cs3 Dosyasının Varlığını Kontrol Et
         run: |
           cd $GITHUB_WORKSPACE/builds
@@ -136,14 +158,14 @@ jobs:
           else
             echo "⚠ Anizium.cs3 dosyası bulunamadı"
           fi
-
+          
       - name: Derlemeleri Yükle
         run: |
           cd $GITHUB_WORKSPACE/builds
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add .
-
+          
           # Değişiklik var mı kontrol et
           if git diff --cached --quiet; then
             echo "Yüklenecek değişiklik yok"
