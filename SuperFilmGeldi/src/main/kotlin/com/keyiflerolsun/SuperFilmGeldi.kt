@@ -41,8 +41,8 @@ class SuperFilmGeldi : MainAPI() {
         "${mainUrl}/hdizle/category/suc/"                           to "Suç",
         "${mainUrl}/hdizle/category/western/"                       to "Western",
         "${mainUrl}/hdizle/category/2019-filmleri/"                 to "2019 Filmleri",
-        "${mainUrl}/hdizle/category/yesilcam-erotik-izle/page/"     to "Yeşilçam Erotik",
-        "${mainUrl}/hdizle/category/hd-erotik-filmler-izle/page/"   to "Erotik Filmler",
+        "${mainUrl}/hdizle/category/yesilcam-erotik-izle/"          to "Yeşilçam Erotik",
+        "${mainUrl}/hdizle/category/hd-erotik-filmler-izle"          to "Erotik Filmler"
         )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
