@@ -28,20 +28,21 @@ jobs:
         with:
           ref: "builds"
           path: "builds"
-        continue-on-error: true # Branch yoksa hata verme
+        continue-on-error: true  # Branch yoksa hata verme
 
-      - name: "Boş 'builds' Klasörü Oluştur (Eğer Checkout Başarısızsa)"
-        if: failure() && steps.checkout-builds.conclusion == 'failure'
-        run: |
-          mkdir -p builds
-          cd builds
-          git init
-          git checkout -b builds
-          echo "# Builds" > README.md
-          git add .
-          git config user.email "actions@github.com"
-          git config user.name "GitHub Actions"
-          git commit -m "Initial commit"
+      - name: Builds Klasörünü Hazırla (Yoksa)
+            if: steps.checkout-builds.outcome == 'failure'
+            run: |
+            mkdir -p builds
+            cd builds
+            git init
+            git checkout --orphan builds
+            echo "# Builds Repository" > README.md
+            git add README.md
+            git config user.email "actions@github.com"
+            git config user.name "GitHub Actions"
+            git commit -m "Initial commit"
+            cd ..
 
       - name: Eski Derlemeleri Temizle
         run: find $GITHUB_WORKSPACE/builds -name '*.cs3' ! -name 'Anizium.cs3' -delete
