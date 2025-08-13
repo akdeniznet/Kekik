@@ -1,0 +1,103 @@
+[
+    {
+        "iconUrl": "https://www.4kfilmizleme.net/wp-content/uploads/2022/09/4kfilmizlemefavicon-1.png",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/akdeniznet/Kekik",
+        "fileSize": 38988,
+        "status": 1,
+        "language": "tr",
+        "authors": [
+            "kraptor"
+        ],
+        "tvTypes": [
+            "Movie"
+        ],
+        "version": 27,
+        "internalName": "4KFilmIzleme",
+        "description": "Film izle, \u26a1 En yeni \u00e7\u0131kan yabanc\u0131 vizyon filmleri 4KFilmizleme ile Online 1080p kalite veya Ultra Full HD 4K Film izle.",
+        "url": "https://raw.githubusercontent.com/akdeniznet/Kekik/builds/4KFilmIzleme.cs3",
+        "name": "4KFilmIzleme"
+    },
+    {
+        "iconUrl": "https://www.google.com/s2/favicons?domain=dizilla.club&sz=%size%",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/akdeniznet/Kekik",
+        "fileSize": 49281,
+        "status": 1,
+        "language": "tr",
+        "authors": [
+            "keyiflerolsun",
+            "kraptor",
+            "kerimmkirac"
+        ],
+        "tvTypes": [
+            "TvSeries"
+        ],
+        "version": 51,
+        "internalName": "Dizilla",
+        "description": "Dizilla t\u00fcm yabanc\u0131 dizileri \u00fccretsiz olarak T\u00fcrk\u00e7e Dublaj ve altyaz\u0131l\u0131 se\u00e7enekleri ile 1080P kalite izleyebilece\u011finiz yeni nesil yabanc\u0131 dizi izleme siteniz.",
+        "url": "https://raw.githubusercontent.com/akdeniznet/Kekik/builds/Dizilla.cs3",
+        "name": "Dizilla"
+    },
+    {
+        "iconUrl": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dizipal953.com&size=128",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/akdeniznet/Kekik",
+        "fileSize": 18118,
+        "status": 1,
+        "language": "tr",
+        "authors": [
+            "keyiflerolsun",
+            "muratcesmecioglu"
+        ],
+        "tvTypes": [
+            "TvSeries",
+            "Movie"
+        ],
+        "version": 45,
+        "internalName": "DiziPal",
+        "description": "en yeni dizileri g\u00fcvenli ve h\u0131zl\u0131 \u015fekilde sunar.",
+        "url": "https://raw.githubusercontent.com/akdeniznet/Kekik/builds/DiziPal.cs3",
+        "name": "DiziPal"
+    },
+    {
+        "iconUrl": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dizipal932.com&size=128",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/akdeniznet/Kekik",
+        "fileSize": 45031,
+        "status": 1,
+        "language": "tr",
+        "authors": [
+            "kraptor",
+            "kerimmkirac"
+        ],
+        "tvTypes": [
+            "TvSeries"
+        ],
+        "version": 39,
+        "internalName": "DiziPalOrijinal",
+        "description": "DiziPal Orijinal.",
+        "url": "https://raw.githubusercontent.com/akdeniznet/Kekik/builds/DiziPalOrijinal.cs3",
+        "name": "DiziPalOrijinal"
+    },
+    {
+        "iconUrl": "https://www.google.com/s2/favicons?domain=www.superfilmgeldi.biz&sz=%size%",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/akdeniznet/Kekik",
+        "fileSize": 18684,
+        "status": 1,
+        "language": "tr",
+        "authors": [
+            "keyiflerolsun",
+            "kraptor"
+        ],
+        "tvTypes": [
+            "Movie"
+        ],
+        "version": 18,
+        "internalName": "SuperFilmGeldi",
+        "description": "Hd film izliyerek arkada\u015flar\u0131n\u0131zla ve sevdiklerinizle iyi bir vakit ge\u00e7irmek istiyorsan\u0131z a\u00e7\u0131n bir film e\u011flenmeye bak\u0131n. Bilim kurgu filmleri, a\u015fk drama vah\u015fet a\u015fk romantik s\u0131rad\u0131\u015f\u0131 korku filmlerini izle.",
+        "url": "https://raw.githubusercontent.com/akdeniznet/Kekik/builds/SuperFilmGeldi.cs3",
+        "name": "SuperFilmGeldi"
+    }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "iconUrl": "https://www.4kfilmizleme.net/wp-content/uploads/2022/09/4kfilmizlemefavicon-1.png",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/akdeniznet/Kekik",
+    "fileSize": 38988,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "kraptor"
+    ],
+    "tvTypes": [
+      "Movie"
+    ],
+    "version": 27,
+    "internalName": "4KFilmIzleme",
+    "description": "Film izle, ⚡ En yeni çıkan yabancı vizyon filmleri 4KFilmizleme ile Online 1080p kalite veya Ultra Full HD 4K Film izle.",
+    "url": "https://raw.githubusercontent.com/akdeniznet/Kekik/builds/4KFilmIzleme.cs3",
+    "name": "4KFilmIzleme"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?domain=dizilla.club&sz=%size%",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/akdeniznet/Kekik",
+    "fileSize": 49281,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "keyiflerolsun",
+      "kraptor",
+      "kerimmkirac"
+    ],
+    "tvTypes": [
+      "TvSeries"
+    ],
+    "version": 51,
+    "internalName": "Dizilla",
+    "description": "Dizilla tüm yabancı dizileri ücretsiz olarak Türkçe Dublaj ve altyazılı seçenekleri ile 1080P kalite izleyebileceğiniz yeni nesil yabancı dizi izleme siteniz.",
+    "url": "https://raw.githubusercontent.com/akdeniznet/Kekik/builds/Dizilla.cs3",
+    "name": "Dizilla"
+  },
+  {
+    "iconUrl": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dizipal953.com&size=128",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/akdeniznet/Kekik",
+    "fileSize": 18118,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "keyiflerolsun",
+      "muratcesmecioglu"
+    ],
+    "tvTypes": [
+      "TvSeries",
+      "Movie"
+    ],
+    "version": 45,
+    "internalName": "DiziPal",
+    "description": "en yeni dizileri güvenli ve hızlı şekilde sunar.",
+    "url": "https://raw.githubusercontent.com/akdeniznet/Kekik/builds/DiziPal.cs3",
+    "name": "DiziPal"
+  },
+  {
+    "iconUrl": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dizipal932.com&size=128",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/akdeniznet/Kekik",
+    "fileSize": 45031,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "kraptor",
+      "kerimmkirac"
+    ],
+    "tvTypes": [
+      "TvSeries"
+    ],
+    "version": 39,
+    "internalName": "DiziPalOrijinal",
+    "description": "DiziPal Orijinal.",
+    "url": "https://raw.githubusercontent.com/akdeniznet/Kekik/builds/DiziPalOrijinal.cs3",
+    "name": "DiziPalOrijinal"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?domain=www.superfilmgeldi.biz&sz=%size%",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/akdeniznet/Kekik",
+    "fileSize": 18684,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "keyiflerolsun",
+      "kraptor"
+    ],
+    "tvTypes": [
+      "Movie"
+    ],
+    "version": 18,
+    "internalName": "SuperFilmGeldi",
+    "description": "Hd film izliyerek arkadaşlarınızla ve sevdiklerinizle iyi bir vakit geçirmek istiyorsanız açın bir film eğlenmeye bakın. Bilim kurgu filmleri, aşk drama vahşet aşk romantik sıradışı korku filmlerini izle.",
+    "url": "https://raw.githubusercontent.com/akdeniznet/Kekik/builds/SuperFilmGeldi.cs3",
+    "name": "SuperFilmGeldi"
+  },
+  {
+    "repositoryUrl": "https://github.com/Kraptor123/cs-kekikanime",
+    "apiVersion": 1,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "kerimmkirac"
+    ],
+    "tvTypes": [
+      "AnimeMovie",
+      "Anime"
+    ],
+    "version": 1,
+    "internalName": "Anizium",
+    "description": "Anizium ile dünyada ilk ve tek 4K Türkçe dublaj platformunda anime keyfini yaşa. En yeni animeleri İngilizce altyazı ve dublaj seçenekleriyle 1080p ve 4K kalitesinde HD izle.",
+    "url": "https://github.com/Kraptor123/cs-kekikanime/raw/refs/heads/builds/Anizium.cs3",
+    "name": "Anizium",
+    "iconUrl": "https://anizium.co/assets/images/logo.png"
+  }
+]
