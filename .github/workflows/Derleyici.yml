@@ -23,11 +23,25 @@ jobs:
         with:
           path: "src"
 
-      - name: "'build' Depo Kontrolü"
+      - name: "'builds' Branch'ini Kontrol Et"
         uses: actions/checkout@v4.2.2
         with:
           ref: "builds"
           path: "builds"
+        continue-on-error: true # Branch yoksa hata verme
+
+      - name: "Boş 'builds' Klasörü Oluştur (Eğer Checkout Başarısızsa)"
+        if: failure() && steps.checkout-builds.conclusion == 'failure'
+        run: |
+          mkdir -p builds
+          cd builds
+          git init
+          git checkout -b builds
+          echo "# Builds" > README.md
+          git add .
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git commit -m "Initial commit"
 
       - name: Eski Derlemeleri Temizle
         run: find $GITHUB_WORKSPACE/builds -name '*.cs3' ! -name 'Anizium.cs3' -delete
